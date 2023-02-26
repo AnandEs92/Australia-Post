@@ -1,0 +1,27 @@
+<div class="content" role="main">
+  <div class="card highlight-card card-panel">
+    <p-autoComplete field="name" [minLength]="3" [forceSelection]="true" required="true" class="p-autocomplete"  [(ngModel)]="postCode" [suggestions]="results" (completeMethod)="changeSearchText($event)" placeholder="Enter first 3 digits of postcode to begin search">
+      <ng-template let-value pTemplate="item">
+        <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">
+           <div class="f-l-text">{{value.postcode}}</div>
+            <div class="f-r-text">{{value.name}}</div>
+        </div>
+    </ng-template>
+    </p-autoComplete>
+    <button (click)='searchSuburb(postCode)' [disabled]='!((postCode && postCode.length>2 || isObject(postCode)))' class="btn-red" title="Click to find the suburbs within 4km range " >Search</button>
+  </div>
+    <p-dataTable [rows]="10" [paginator]="true"  *ngIf="isSearchActive" [value]="tableData" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]">
+    <p-header><div *ngIf="this.tableData && this.tableData.length>0 ">List of suburbs within 4 km range from {{this.postCode&& this.postCode.name}}</div> </p-header>
+    <p-column sortable="true" field="postcode" header="Post Code"></p-column>
+    <p-column sortable="true" field="name" header="Name"></p-column>
+    <p-column sortable="true" field="locality" header="Locality"></p-column>
+    <p-column sortable="true" field="stateName" header="State"></p-column>
+    </p-dataTable>
+    <p-growl  [life]="3500" [(value)]="msgs"></p-growl>
+  <div class="footer">
+      Powered By&nbsp;
+      <a href="https://www.prophecyinternational.com/" target="_blank" rel="noopener"> Prophecy International
+      </a>
+  </div>
+</div>
+
