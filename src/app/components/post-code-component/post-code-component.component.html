@@ -12,9 +12,9 @@
   </div>
     <p-dataTable #dt [rows]="10" [paginator]="true"  *ngIf="isSearchActive" [value]="tableData" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]">
     <p-header>
-      <button *ngIf="this.tableData && this.tableData.length>0 " class="btn-blue" type="button" pButton (click)="dt.exportCSV()" style="float:right">Export Data</button>
+      <button *ngIf="this.tableData && this.tableData.length>0 " class="btn-blue" type="button" pButton  (click)="dt.exportCSV()" style="float:right">
       <div *ngIf="this.tableData && this.tableData.length>0 ">List of suburbs within 4 km range from {{this.postCode&& this.postCode.name}}</div>
-    </p-header>
+      </p-header>
     <p-column sortable="true" field="postcode" header="Post Code"></p-column>
     <p-column sortable="true" field="name" header="Name"></p-column>
     <p-column sortable="true" field="locality" header="Locality"></p-column>
