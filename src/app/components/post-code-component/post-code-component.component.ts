@@ -27,6 +27,8 @@ private subscriptions: Subscription[] = [];
         this.subscriptions.push( this.ps.getPostCodes(this.postCode).subscribe((data: any) => {
            this.assignPost(data);
               }, (err: any) => {
+                   this.msgs = [];
+                   this.msgs.push({severity:'error', summary:'Failure', detail:'Unable to fetch details(blocked by CORS policy)'});
               }));
     }
   }
@@ -39,6 +41,7 @@ private subscriptions: Subscription[] = [];
        this.subscriptions.push(this.ps.getNearSuburbs(this.postCode).subscribe((data: any) => {
         this.assignSuburbs(data);
       }, (err: any) => {
+          this.msgs.push({severity:'error', summary:'Failure', detail:'Unable to fetch details(blocked by CORS policy)'});
       }));
     }
     if (!this.postCode || this.postCode.length === 0){
