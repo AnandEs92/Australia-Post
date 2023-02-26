@@ -371,7 +371,7 @@ input[type=number] {
   background-size: cover; /* Resize the background image to cover the entire container */
 
 }
-btn-red:hover {
+.btn-red:hover {
   border: 1px solid #eb4755;
   background-color: #eb4755;
   color: #ffffff;
