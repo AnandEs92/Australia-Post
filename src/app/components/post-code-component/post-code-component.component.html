@@ -10,7 +10,7 @@
     </p-autoComplete>
     <button (click)='searchSuburb(postCode)' [disabled]='!((postCode && postCode.length>2 || isObject(postCode)))' class="btn-red" title="Click to find the suburbs within 4km range " >Search</button>
   </div>
-    <p-dataTable #dt [rows]="10" [paginator]="true"  *ngIf="isSearchActive" [value]="tableData" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]">
+    <p-dataTable #dt [rows]="10" [paginator]="true"  *ngIf="isSearchActive" [value]="tableData" [pageLinks]="3" [rowsPerPageOptions]="[5,10]">
     <p-header>
       <button *ngIf="this.tableData && this.tableData.length>0 " class="btn-blue" type="button" pButton  (click)="dt.exportCSV()" style="float:right">Export Data</button>
       <div *ngIf="this.tableData && this.tableData.length>0 ">List of suburbs within 4 km range from {{this.postCode&& this.postCode.name}}</div>
