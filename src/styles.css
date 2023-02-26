@@ -257,6 +257,12 @@
     z-index: -10;
     width: 1920px;
   }
+  .ui-growl {
+    top: 80%;
+}
+  .ui-growl-icon-close {
+    display: none !important;
+  }
 
 
   /* Responsive Styles */
@@ -392,10 +398,8 @@ button[disabled]{
 }
 .footer{
   position: fixed;
-    left: 40%;
-    bottom: 20px;
-    width: 100%;
+  left: 40%;
+  bottom: 20px;
+  width: 100%;
 }
-.ui-growl {
-    top: 80%;
-}
+
